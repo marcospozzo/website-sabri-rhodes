@@ -2339,7 +2339,7 @@ body.is-touch .main {
 /* Intro */
 
 #intro {
-  background: url("images/overlay.png"), url("../../images/3.jpeg");
+  background: url("images/overlay.png"), url("../../images/1.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, bottom center;
@@ -2349,7 +2349,7 @@ body.is-touch .main {
 /* One */
 
 #one {
-  background: url("images/overlay.png"), url("../../images/2.jpeg");
+  background: url("images/overlay.png"), url("../../images/2.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
@@ -2358,7 +2358,7 @@ body.is-touch .main {
 /* Two */
 
 #two {
-  background: url("images/overlay.png"), url("../../images/1.jpeg");
+  background: url("images/overlay.png"), url("../../images/4.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
