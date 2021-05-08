@@ -136,13 +136,16 @@
           <h2>CONTACTO</h2>
         </header>
         <div class="box">
-          <form method="post" action="#" netlify>
+          <form method="POST" netlify-honeypot="miel-field" netlify>
             <div class="fields">
               <div class="field half">
                 <input type="text" name="name" placeholder="Nombre" />
               </div>
               <div class="field half">
                 <input type="email" name="email" placeholder="Email" />
+              </div>
+              <div class="field mielcita">
+                <input type="message" name="miel-field" placeholder="Mensaje" />
               </div>
               <div class="field">
                 <textarea
