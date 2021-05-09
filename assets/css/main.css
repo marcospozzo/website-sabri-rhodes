@@ -1010,6 +1010,7 @@ select {
 
 textarea {
   min-height: 8em;
+  resize: none;
 }
 
 ::-moz-focus-inner {
@@ -2117,7 +2118,7 @@ body {
   -moz-justify-content: -moz-flex-start;
   -webkit-justify-content: -webkit-flex-start;
   -ms-justify-content: -ms-flex-start;
-  justify-content: flex-start;
+  justify-content: space-between;
 }
 
 .main.style2.right {
@@ -2390,9 +2391,24 @@ body.is-touch .main {
   transform: translateY(100%);
 }
 
+#spotify-iframe {
+  margin-right: 15vw;
+}
+
 @media screen and (max-width: 736px) {
   #contact .box {
     padding: 1.5em 1.5em 2em 1.5em;
+  }
+
+  .main.style2.left {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  #spotify-iframe {
+    margin-right: 0;
+    margin-top: 5vh;
+    width: 100%;
   }
 }
 
