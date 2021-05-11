@@ -6,199 +6,209 @@
 
 /* Main */
 
-	.main {
-		@include vendor('display', 'flex');
-		position: relative;
-		margin: 0;
-		overflow-x: hidden;
+.main {
+  @include vendor("display", "flex");
+  position: relative;
+  margin: 0;
+  overflow-x: hidden;
 
-		> .content {
-			width: 45em;
-			max-width: calc(100% - 4em);
-			margin: 0 auto;
+  > .content {
+    width: 45em;
+    max-width: calc(100% - 4em);
+    margin: 0 auto;
 
-			> :last-child {
-				margin-bottom: 0;
-			}
-		}
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
 
-		&.fullscreen {
-			min-height: 100%;
-		}
+  &.fullscreen {
+    min-height: 100%;
+  }
 
-		&.style1 {
-			@include vendor('align-items', 'center');
-			@include vendor('justify-content', 'center');
-			text-align: center;
-			padding: 3em 0 3em 0;
+  &.style1 {
+    @include vendor("align-items", "center");
+    @include vendor("justify-content", "center");
+    text-align: center;
+    padding: 3em 0 3em 0;
 
-			h2 {
-				font-size: 4.25em;
-				line-height: 1em;
-			}
+    h2 {
+      font-size: 4.25em;
+      line-height: 1em;
+    }
 
-			> .content {
-				@include vendor('transition', 'opacity #{_duration(fade-in)} ease');
-				@include vendor('transform', 'translateZ(0)');
-				opacity: 1.0;
-				margin: 0;
-			}
+    > .content {
+      @include vendor("transition", "opacity #{_duration(fade-in)} ease");
+      @include vendor("transform", "translateZ(0)");
+      opacity: 1;
+      margin: 0;
+    }
 
-			&.inactive > .content {
-				opacity: 0;
-			}
-		}
+    &.inactive > .content {
+      opacity: 0;
+    }
+  }
 
-		&.style2 {
-			@include vendor('align-items', 'center');
-			@include vendor('justify-content', 'center');
-			padding: 3em 0 3em 0;
-			overflow: hidden;
+  &.style2 {
+    @include vendor("align-items", "center");
+    @include vendor("justify-content", "center");
+    padding: 3em 0 3em 0;
+    overflow: hidden;
 
-			> .content {
-				@include vendor('transition', 'transform #{_duration(fade-in)} ease');
-				@include vendor('transform', 'translateZ(0)');
-				position: relative;
-				width: 35%;
-				margin: 0;
-			}
+    > .content {
+      @include vendor("transition", "transform #{_duration(fade-in)} ease");
+      @include vendor("transform", "translateZ(0)");
+      position: relative;
+      width: 35%;
+      margin: 0;
+    }
 
-			&.left {
-				@include vendor('justify-content', 'flex-start');
-			}
+    #spotify-iframe {
+      width: 25%;
+    }
 
-			&.right {
-				@include vendor('justify-content', 'flex-end');
-			}
+    &.left {
+      @include vendor("justify-content", "flex-start");
+    }
 
-			&.inactive {
-				&.left > .content {
-					@include vendor('transform', 'translateX(-100%)');
-				}
+    &.right {
+      @include vendor("justify-content", "flex-end");
+    }
 
-				&.right > .content {
-					@include vendor('transform', 'translateX(100%)');
-				}
-			}
-		}
+    &.inactive {
+      &.left > .content {
+        @include vendor("transform", "translateX(-100%)");
+      }
 
-		&.style3 {
-			text-align: center;
-			padding: 6em 0 6em 0;
+      &.right > .content {
+        @include vendor("transform", "translateX(100%)");
+      }
+    }
+  }
 
-			.content > header {
-				margin-bottom: 2em;
-			}
+  &.style3 {
+    text-align: center;
+    padding: 6em 0 6em 0;
 
-			&.primary {
-				background: _palette(bg);
-			}
+    .content > header {
+      margin-bottom: 2em;
+    }
 
-			&.secondary {
-				background: _palette(bg-alt);
-			}
-		}
+    &.primary {
+      background: _palette(bg);
+    }
 
-		&.dark {
-			color: _palette(dark, fg);
+    &.secondary {
+      background: _palette(bg-alt);
+    }
+  }
 
-			a {
-				color: inherit;
-			}
+  &.dark {
+    color: _palette(dark, fg);
 
-			.button.style2 {
-				border-color: _palette(dark, fg);
+    a {
+      color: inherit;
+    }
 
-				&:hover {
-					background-color: transparentize(_palette(dark, border), 0.875);
-				}
+    .button.style2 {
+      border-color: _palette(dark, fg);
 
-				&:active {
-					background-color: transparentize(_palette(dark, border), 0.75);
-				}
+      &:hover {
+        background-color: transparentize(_palette(dark, border), 0.875);
+      }
 
-				&.down {
-					background-image: url('images/dark-arrow.svg');
-				}
-			}
-		}
+      &:active {
+        background-color: transparentize(_palette(dark, border), 0.75);
+      }
 
-		body.is-touch & {
-			background-attachment: scroll !important;
-		}
+      &.down {
+        background-image: url("images/dark-arrow.svg");
+      }
+    }
+  }
 
-		@include breakpoint('<=xxlarge') {
-			&.style2 {
-				.content {
-					width: 40%;
-				}
-			}
-		}
+  body.is-touch & {
+    background-attachment: scroll !important;
+  }
 
-		@include breakpoint('<=large') {
-			&.style2 {
-				.content {
-					width: 50%;
-				}
-			}
-		}
+  @include breakpoint("<=xxlarge") {
+    &.style2 {
+      .content {
+        width: 40%;
+      }
+    }
+  }
 
-		@include breakpoint('<=medium') {
-			&.style2 {
-				.content {
-					width: 60%;
-				}
-			}
-		}
+  @include breakpoint("<=large") {
+    &.style2 {
+      .content {
+        width: 50%;
+      }
+      #spotify-iframe {
+        width: 35%;
+      }
+    }
+  }
 
-		@include breakpoint('<=small') {
-			> .content {
-				br {
-					display: none;
-				}
-			}
+  @include breakpoint("<=medium") {
+    &.style2 {
+      .content {
+        width: 60%;
+      }
+    }
+  }
 
-			&.fullscreen {
-				height: auto !important;
-			}
+  @include breakpoint("<=small") {
+    > .content {
+      br {
+        display: none;
+      }
+    }
 
-			&.style1 {
-				padding: 4em 15px 4em 15px;
+    &.fullscreen {
+      height: auto !important;
+    }
 
-				h2 {
-					font-size: 3em;
-				}
-			}
+    &.style1 {
+      padding: 4em 15px 4em 15px;
 
-			&.style2 {
-				padding: 6em 15px 6em 15px;
+      h2 {
+        font-size: 3em;
+      }
+    }
 
-				&:before,
-				&:after {
-					display: none !important;
-				}
+    &.style2 {
+      padding: 6em 15px 6em 15px;
 
-				.button.anchored {
-					display: none;
-				}
+      &:before,
+      &:after {
+        display: none !important;
+      }
 
-				.content {
-					width: 100%;
-					max-width: 100%;
-					text-align: center;
-					@include vendor('transform', 'none');
-				}
-			}
+      .button.anchored {
+        display: none;
+      }
 
-			&.style3 {
-				text-align: center;
-				padding: 3em 10px 3em 10px;
-			}
-		}
+      .content {
+        width: 100%;
+        max-width: 100%;
+        text-align: center;
+        @include vendor("transform", "none");
+      }
+      #spotify-iframe {
+        width: 100%;
+      }
+    }
 
-		@include breakpoint('<=xsmall') {
-			> .content {
-				max-width: calc(100% - 1.5em);
-			}
-		}
-	}
+    &.style3 {
+      text-align: center;
+      padding: 3em 10px 3em 10px;
+    }
+  }
+
+  @include breakpoint("<=xsmall") {
+    > .content {
+      max-width: calc(100% - 1.5em);
+    }
+  }
+}
