@@ -82,34 +82,38 @@
 
 /* One */
 
-#one {
+#sobre-mi {
   background: url("images/overlay.png"), url("../../images/one.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Two */
+/* que-hago */
 
-#two {
+#que-hago {
   background: url("images/overlay.png"), url("../../images/two.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Three */
+/* musica */
 
-#three {
+#musica {
   background: url("images/overlay.png"), url("../../images/three.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Contact */
+/* contacto */
 
-#contact {
+#contacto {
+  background: url("images/overlay.png"), url("../../images/6.png");
+  background-size: 256px 256px, cover;
+  background-attachment: fixed, fixed;
+  background-position: top left, center center;
   overflow: hidden;
   padding-bottom: 0;
 

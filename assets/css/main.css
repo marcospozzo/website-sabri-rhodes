@@ -637,6 +637,7 @@ textarea {
   border-radius: 0.5em;
   outline: none;
   resize: none;
+  height: 3em;
 }
 
 input[type="text"]:focus,
@@ -940,6 +941,15 @@ ul.icons a {
   border: 0;
 }
 
+ul.icons a img {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  line-height: 2em;
+  text-align: center;
+  border: 0;
+}
+
 /* Sections/Article */
 header {
   margin-bottom: 1em;
@@ -953,6 +963,12 @@ header p {
 
 footer {
   margin-top: 2em;
+}
+
+@media screen and (max-width: 480px) {
+  header img {
+    width: 100%;
+  }
 }
 
 /* Table */
@@ -1651,6 +1667,7 @@ body {
 
 .main.style2 #spotify-iframe {
   width: 25%;
+  margin-right: 3em;
 }
 
 .main.style2.left {
@@ -1776,6 +1793,7 @@ body.is-touch .main {
   }
   .main.style2 #spotify-iframe {
     width: 100%;
+    margin-right: 0;
   }
   .main.style3 {
     text-align: center;
@@ -1881,36 +1899,40 @@ body.is-touch .main {
 }
 
 /* One */
-#one {
+#sobre-mi {
   background: url("images/overlay.png"), url("../../images/one.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Two */
-#two {
+/* que-hago */
+#que-hago {
   background: url("images/overlay.png"), url("../../images/two.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Three */
-#three {
+/* musica */
+#musica {
   background: url("images/overlay.png"), url("../../images/three.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
 }
 
-/* Contact */
-#contact {
+/* contacto */
+#contacto {
+  background: url("images/overlay.png"), url("../../images/6.png");
+  background-size: 256px 256px, cover;
+  background-attachment: fixed, fixed;
+  background-position: top left, center center;
   overflow: hidden;
   padding-bottom: 0;
 }
 
-#contact .box {
+#contacto .box {
   -webkit-transition: -webkit-transform 1s ease;
   transition: -webkit-transform 1s ease;
   transition: transform 1s ease;
@@ -1920,19 +1942,19 @@ body.is-touch .main {
   position: relative;
 }
 
-#contact.inactive .box {
+#contacto.inactive .box {
   -webkit-transform: translateY(100%);
   transform: translateY(100%);
 }
 
 @media screen and (max-width: 736px) {
-  #contact .box {
+  #contacto .box {
     padding: 1.5em 1.5em 2em 1.5em;
   }
 }
 
 @media screen and (max-width: 480px) {
-  #contact .box {
+  #contacto .box {
     padding: 1em 1em 2em 1em;
   }
 }

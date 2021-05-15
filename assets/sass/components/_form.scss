@@ -102,6 +102,7 @@ textarea {
   border-radius: 0.5em;
   outline: none;
   resize: none;
+  height: 3em;
 
   &:focus {
     border-color: _palette(accent2, bg);
