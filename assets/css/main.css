@@ -1666,7 +1666,7 @@ body {
 }
 
 .main.style2 #spotify-iframe {
-  width: 25%;
+  width: 20%;
   margin-right: 3em;
 }
 
@@ -1694,6 +1694,11 @@ body {
 .main.style2.inactive.right > .content {
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
+}
+
+.main.style2.inactive.right > .content#spotify-iframe {
+  -webkit-transform: translateX(130%);
+  transform: translateX(130%);
 }
 
 .main.style3 {
@@ -1752,7 +1757,7 @@ body.is-touch .main {
     width: 50%;
   }
   .main.style2 #spotify-iframe {
-    width: 35%;
+    width: 30%;
   }
 }
 
@@ -1841,8 +1846,18 @@ body.is-touch .main {
   color: inherit;
 }
 
+#footer a img {
+  opacity: 0.7;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+
 #footer a:hover {
   color: #b9babb;
+}
+
+#footer a:hover img {
+  opacity: 1;
 }
 
 #footer ul.menu {
@@ -1889,7 +1904,7 @@ body.is-touch .main {
   }
 }
 
-/* Intro */
+/* intro */
 #intro {
   background: url("images/overlay.png"), url("../../images/intro.png");
   background-size: 256px 256px, cover;
@@ -1898,7 +1913,7 @@ body.is-touch .main {
   background-repeat: repeat, no-repeat;
 }
 
-/* One */
+/* sobre-mi */
 #sobre-mi {
   background: url("images/overlay.png"), url("../../images/one.png");
   background-size: 256px 256px, cover;

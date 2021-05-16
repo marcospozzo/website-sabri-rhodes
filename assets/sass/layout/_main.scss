@@ -64,7 +64,7 @@
     }
 
     #spotify-iframe {
-      width: 25%;
+      width: 20%;
       margin-right: 3em;
     }
 
@@ -83,6 +83,9 @@
 
       &.right > .content {
         @include vendor("transform", "translateX(100%)");
+        &#spotify-iframe {
+          @include vendor("transform", "translateX(130%)");
+        }
       }
     }
   }
@@ -146,7 +149,7 @@
         width: 50%;
       }
       #spotify-iframe {
-        width: 35%;
+        width: 30%;
       }
     }
   }
