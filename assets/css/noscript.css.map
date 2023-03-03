@@ -1,14 +1,1 @@
-{
-    "version": 3,
-    "mappings": "AAMA;;;;EAIE;AAEF,YAAY;AAEX,AACC,IADG,AACF,OAAO,EADT,IAAI,AACQ,MAAM,CAAC;EACjB,OAAO,EAAE,IAAI;CACb",
-    "sources": [
-        "../sass/noscript.scss",
-        "../sass/libs/_vars.scss",
-        "../sass/libs/_functions.scss",
-        "../sass/libs/_mixins.scss",
-        "../sass/libs/_vendor.scss",
-        "../sass/libs/_breakpoints.scss"
-    ],
-    "names": [],
-    "file": "noscript.css"
-}
+{"version":3,"sources":["../sass/noscript.scss","noscript.css"],"names":[],"mappings":"AAMA;;;;CAAA;AAMA,WAAA;AAGE;EACC,aAAA;ACRH","file":"noscript.css"}

@@ -23,6 +23,101 @@
       ><link rel="stylesheet" href="assets/css/noscript.css"
     /></noscript>
   </head>
+
+  <script>
+    // document.getElementById("bio").textContent = json[0].bio;
+
+    async function fetchData() {
+      const embedUrl = "https://www.youtube.com/embed/";
+      try {
+        const response1 = await fetch(
+          "https://opensheet.elk.sh/1zphaLXMRv2KyaVh-GfaGx0F3UHR6QK2iq-5aqiioxcA/main"
+        );
+        const main = await response1.json();
+
+        // bio
+        const bio = document.getElementById("bio-p");
+        bio.innerText = main[0].bio;
+
+        // sobre mi
+        const sobreMi = document.getElementById("sobre-mi-p");
+        sobreMi.innerText = main[0].sobreMi;
+
+        // que hago
+        const queHago = document.getElementById("que-hago-p");
+        queHago.innerText = main[0].queHago;
+
+        // videos
+        const response2 = await fetch(
+          "https://opensheet.elk.sh/1zphaLXMRv2KyaVh-GfaGx0F3UHR6QK2iq-5aqiioxcA/videos"
+        );
+        const videos = await response2.json();
+
+        // matches any youtube video id
+        const regex1 =
+          /(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=))([\w-]{11})(?=[^\w-]|$)(?![?&]list=)/;
+        const url1 = videos[0].video1;
+        const url2 = videos[0].video2;
+        const url3 = videos[0].video3;
+        const match1 = url1.match(regex1);
+        const match2 = url2.match(regex1);
+        const match3 = url3.match(regex1);
+        const video1 = document.getElementById("video-1");
+        const video2 = document.getElementById("video-2");
+        const video3 = document.getElementById("video-3");
+        video1.src = `${embedUrl}${match1[1]}`;
+        video2.src = `${embedUrl}${match2[1]}`;
+        video3.src = `${embedUrl}${match3[1]}`;
+
+        // images
+        const response3 = await fetch(
+          "https://opensheet.elk.sh/1zphaLXMRv2KyaVh-GfaGx0F3UHR6QK2iq-5aqiioxcA/images"
+        );
+        const images = await response3.json();
+
+        // matches the id from a google drive url
+        const regex2 = /\/(?:d|file)\/([\w-]{7,})(?:\/|$)/;
+
+        const imageUrl1Full = images[0].image1;
+        const imageUrl1Thumb = images[1].image1;
+        const imageId1Full = imageUrl1Full.match(regex2);
+        const imageId1Thumb = imageUrl1Thumb.match(regex2);
+        const image1Full = document.getElementById("image-1-full");
+        const image1Thumb = document.getElementById("image-1-thumb");
+        image1Full.href = `https://drive.google.com/uc?export=view&id=${imageId1Full[1]}`;
+        image1Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId1Thumb[1]}`;
+        image1Thumb.title = images[2].image1;
+        image1Thumb.alt = images[2].image1;
+
+        const imageUrl2Full = images[0].image2;
+        const imageUrl2Thumb = images[1].image2;
+        const imageId2Full = imageUrl2Full.match(regex2);
+        const imageId2Thumb = imageUrl2Thumb.match(regex2);
+        const image2Full = document.getElementById("image-2-full");
+        const image2Thumb = document.getElementById("image-2-thumb");
+        image2Full.href = `https://drive.google.com/uc?export=view&id=${imageId2Full[1]}`;
+        image2Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId2Thumb[1]}`;
+        image2Thumb.title = images[2].image2;
+        image2Thumb.alt = images[2].image2;
+
+        const imageUrl3Full = images[0].image3;
+        const imageUrl3Thumb = images[1].image3;
+        const imageId3Full = imageUrl3Full.match(regex2);
+        const imageId3Thumb = imageUrl3Thumb.match(regex2);
+        const image3Full = document.getElementById("image-3-full");
+        const image3Thumb = document.getElementById("image-3-thumb");
+        image3Full.href = `https://drive.google.com/uc?export=view&id=${imageId3Full[1]}`;
+        image3Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId3Thumb[1]}`;
+        image3Thumb.title = images[2].image3;
+        image3Thumb.alt = images[2].image3;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    fetchData();
+  </script>
+
   <body class="is-preload">
     <!-- Header -->
     <header id="header">
@@ -43,10 +138,7 @@
         <header>
           <img src="/images/SR_MARCA_PANTALLA_AJUSTADO.png" alt="" />
         </header>
-        <p>
-          Cantante, compositora, productora y coach vocal. <br />
-          Diseñadora Audiovisual.
-        </p>
+        <p id="bio-p"></p>
         <footer>
           <a href="#sobre-mi" class="button style2 down">More</a>
         </footer>
@@ -59,11 +151,7 @@
         <header>
           <h2>SOBRE MI</h2>
         </header>
-        <p>
-          En constante aprendizaje y transformación. Inquieta, curiosa y siempre
-          construyendo desde el arte. En eterna búsqueda y encuentro. Amante de
-          la estética y de lo extraño por partes iguales.
-        </p>
+        <p id="sobre-mi-p"></p>
       </div>
       <a href="#que-hago" class="button style2 down anchored">Next</a>
     </section>
@@ -74,13 +162,7 @@
         <header>
           <h2>QUE HAGO</h2>
         </header>
-        <p>
-          Además de crear y dar forma a mi propia música, trabajo en acompañar a
-          artistas en sus procesos musicales y creativos. Producción musical y
-          vocal. <br />
-          Dirección y producción audiovisual. Dirección de arte y actores.
-          Edición y postproducción.
-        </p>
+        <p id="que-hago-p"></p>
       </div>
       <a href="#musica" class="button style2 down anchored">Next</a>
     </section>
@@ -92,10 +174,7 @@
         allow="encrypted-media"
         allowtransparency="false"
         frameborder-color="#454545"
-        height="400"
         src="https://open.spotify.com/embed/artist/7AxY7bdcgOpFzKaEra3EXp"
-        style="border: 5px solid #385d5c"
-        width="300"
       ></iframe>
 
       <a href="#galeria" class="button style2 down anchored">Next</a>
@@ -112,7 +191,7 @@
         <div class="gallery">
           <article class="from-left">
             <iframe
-              src="https://www.youtube.com/embed/K4mTpWVGK7A"
+              id="video-1"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -120,24 +199,18 @@
             ></iframe>
           </article>
           <article class="from-right">
-            <a href="images/fulls/2_full.jpg" class="image fit"
-              ><img
-                src="images/thumbs/2_thumb.jpg"
-                title="Presentación en vivo - Beatflow"
-                alt="Presentación en vivo - Beatflow"
+            <a id="image-1-full" class="image fit"
+              ><img id="image-1-thumb"
             /></a>
           </article>
           <article class="from-left">
-            <a href="images/fulls/9_full.jpg" class="image fit"
-              ><img
-                src="images/thumbs/9_thumb.jpg"
-                title="Grabación videoclip Río"
-                alt="Grabación videoclip Río"
+            <a id="image-2-full" class="image fit"
+              ><img id="image-2-thumb"
             /></a>
           </article>
           <article class="from-right">
             <iframe
-              src="https://www.youtube.com/embed/7JcgEoEJOc0"
+              id="video-2"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -146,7 +219,7 @@
           </article>
           <article class="from-left">
             <iframe
-              src="https://www.youtube.com/embed/fncYOQz3TXY"
+              id="video-3"
               title="YouTube video player"
               frameborder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -154,11 +227,8 @@
             ></iframe>
           </article>
           <article class="from-right">
-            <a href="images/fulls/5_full.jpg" class="image fit"
-              ><img
-                src="images/thumbs/5_thumb.jpg"
-                title="Grabación de disco - Casa Frida"
-                alt="Grabación de disco - Casa Frida"
+            <a id="image-3-full" class="image fit"
+              ><img id="image-3-thumb"
             /></a>
           </article>
         </div>
@@ -285,6 +355,7 @@
     </footer>
 
     <!-- Scripts -->
+
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.poptrox.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
