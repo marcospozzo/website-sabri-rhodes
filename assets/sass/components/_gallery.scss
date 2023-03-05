@@ -77,3 +77,39 @@
     }
   }
 }
+
+#news-container.gallery > article > .content.box {
+  text-align: left;
+  margin-bottom: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  min-height: 16em;
+}
+
+#news > div > header > h2 {
+  color: white;
+  margin-bottom: 2em;
+}
+
+#news > div {
+  width: 100%;
+}
+
+#news-container.gallery {
+  width: 100%;
+}
+
+#image-news {
+  border: 7px solid #454545;
+  border-radius: 5px;
+  height: 16em;
+
+  // position: absolute;
+  // left: 9em;
+  // top: 1em;
+}
+
+.image-news {
+  display: flex;
+  justify-content: center;
+}

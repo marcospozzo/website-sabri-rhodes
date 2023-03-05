@@ -27,7 +27,7 @@
   <script>
     // document.getElementById("bio").textContent = json[0].bio;
 
-    async function fetchData() {
+    async function populateData() {
       const embedUrl = "https://www.youtube.com/embed/";
       try {
         const response1 = await fetch(
@@ -38,6 +38,22 @@
         // bio
         const bio = document.getElementById("bio-p");
         bio.innerText = main[0].bio;
+
+        // news
+
+        const newsTitle = document.getElementById("news-title");
+        newsTitle.innerHTML = main[0].news;
+
+        const newsDescription = document.getElementById("news-description");
+        newsDescription.innerHTML = main[1].news;
+
+        // matches the id from a google drive url
+        const regex2 = /\/(?:d|file)\/([\w-]{7,})(?:\/|$)/;
+
+        const imageNews = main[2].news;
+        const imageNewsId = imageNews.match(regex2);
+        const imageNewsDom = document.getElementById("image-news");
+        imageNewsDom.src = `https://drive.google.com/uc?export=view&id=${imageNewsId[1]}`;
 
         // sobre mi
         const sobreMi = document.getElementById("sobre-mi-p");
@@ -75,47 +91,44 @@
         );
         const images = await response3.json();
 
-        // matches the id from a google drive url
-        const regex2 = /\/(?:d|file)\/([\w-]{7,})(?:\/|$)/;
-
-        const imageUrl1Full = images[0].image1;
-        const imageUrl1Thumb = images[1].image1;
+        const imageUrl1Full = images[1].image1;
+        const imageUrl1Thumb = images[2].image1;
         const imageId1Full = imageUrl1Full.match(regex2);
         const imageId1Thumb = imageUrl1Thumb.match(regex2);
         const image1Full = document.getElementById("image-1-full");
         const image1Thumb = document.getElementById("image-1-thumb");
         image1Full.href = `https://drive.google.com/uc?export=view&id=${imageId1Full[1]}`;
         image1Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId1Thumb[1]}`;
-        image1Thumb.title = images[2].image1;
-        image1Thumb.alt = images[2].image1;
+        image1Thumb.title = images[0].image1;
+        image1Thumb.alt = images[0].image1;
 
-        const imageUrl2Full = images[0].image2;
-        const imageUrl2Thumb = images[1].image2;
+        const imageUrl2Full = images[1].image2;
+        const imageUrl2Thumb = images[2].image2;
         const imageId2Full = imageUrl2Full.match(regex2);
         const imageId2Thumb = imageUrl2Thumb.match(regex2);
         const image2Full = document.getElementById("image-2-full");
         const image2Thumb = document.getElementById("image-2-thumb");
         image2Full.href = `https://drive.google.com/uc?export=view&id=${imageId2Full[1]}`;
         image2Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId2Thumb[1]}`;
-        image2Thumb.title = images[2].image2;
-        image2Thumb.alt = images[2].image2;
+        image2Thumb.title = images[0].image2;
+        image2Thumb.alt = images[0].image2;
 
-        const imageUrl3Full = images[0].image3;
-        const imageUrl3Thumb = images[1].image3;
+        const imageUrl3Full = images[1].image3;
+        const imageUrl3Thumb = images[2].image3;
         const imageId3Full = imageUrl3Full.match(regex2);
         const imageId3Thumb = imageUrl3Thumb.match(regex2);
         const image3Full = document.getElementById("image-3-full");
         const image3Thumb = document.getElementById("image-3-thumb");
         image3Full.href = `https://drive.google.com/uc?export=view&id=${imageId3Full[1]}`;
         image3Thumb.src = `https://drive.google.com/uc?export=view&id=${imageId3Thumb[1]}`;
-        image3Thumb.title = images[2].image3;
-        image3Thumb.alt = images[2].image3;
+        image3Thumb.title = images[0].image3;
+        image3Thumb.alt = images[0].image3;
       } catch (error) {
         console.error(error);
       }
     }
 
-    fetchData();
+    populateData();
   </script>
 
   <body class="is-preload">
@@ -123,6 +136,7 @@
     <header id="header">
       <nav>
         <ul>
+          <li><a href="#news">NEWS</a></li>
           <li><a href="#sobre-mi">SOBRE MI</a></li>
           <li><a href="#que-hago">QUE HAGO</a></li>
           <li><a href="#musica">MUSICA</a></li>
@@ -140,9 +154,34 @@
         </header>
         <p id="bio-p"></p>
         <footer>
-          <a href="#sobre-mi" class="button style2 down">More</a>
+          <a href="#news" class="button style2 down">More</a>
         </footer>
       </div>
+    </section>
+
+    <!-- news -->
+    <section id="news" class="main style3 primary">
+      <div class="content">
+        <header>
+          <h2>NEWS</h2>
+        </header>
+
+        <!-- Gallery  -->
+        <div id="news-container" class="gallery">
+          <article class="from-left">
+            <div class="content box">
+              <header>
+                <h2 id="news-title"></h2>
+              </header>
+              <p id="news-description"></p>
+            </div>
+          </article>
+          <article class="from-right image-news">
+            <img id="image-news" />
+          </article>
+        </div>
+      </div>
+      <a href="#sobre-mi" class="button style2 down anchored">Next</a>
     </section>
 
     <!-- sobre-mi -->
@@ -173,7 +212,6 @@
         id="spotify-iframe"
         allow="encrypted-media"
         allowtransparency="false"
-        frameborder-color="#454545"
         src="https://open.spotify.com/embed/artist/7AxY7bdcgOpFzKaEra3EXp"
       ></iframe>
 
@@ -188,7 +226,7 @@
         </header>
 
         <!-- Gallery  -->
-        <div class="gallery">
+        <div id="galeria" class="gallery">
           <article class="from-left">
             <iframe
               id="video-1"

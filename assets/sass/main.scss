@@ -80,6 +80,15 @@
   background-repeat: repeat, no-repeat;
 }
 
+/* news */
+
+#news {
+  background: url("images/overlay.png"), url("../../images/two.png");
+  background-size: 256px 256px, cover;
+  background-attachment: fixed, fixed;
+  background-position: top left, center center;
+}
+
 /* sobre-mi */
 
 #sobre-mi {

@@ -379,6 +379,7 @@ input[type=reset].anchored,
 button.anchored {
   position: absolute;
   left: 50%;
+  top: 81%;
 }
 input[type=button]:hover,
 input[type=submit]:hover,
@@ -1164,6 +1165,38 @@ body.is-touch .poptrox-popup .closer {
   }
 }
 
+#news-container.gallery > article > .content.box {
+  text-align: left;
+  margin-bottom: 5em;
+  margin-left: 3em;
+  margin-right: 3em;
+  min-height: 16em;
+}
+
+#news > div > header > h2 {
+  color: white;
+  margin-bottom: 2em;
+}
+
+#news > div {
+  width: 100%;
+}
+
+#news-container.gallery {
+  width: 100%;
+}
+
+#image-news {
+  border: 7px solid #454545;
+  border-radius: 5px;
+  height: 16em;
+}
+
+.image-news {
+  display: flex;
+  justify-content: center;
+}
+
 /* Header */
 #header {
   position: fixed;
@@ -1496,6 +1529,14 @@ body.is-touch .main {
   background-attachment: fixed, fixed;
   background-position: top left, bottom center;
   background-repeat: repeat, no-repeat;
+}
+
+/* news */
+#news {
+  background: url("images/overlay.png"), url("../../images/two.png");
+  background-size: 256px 256px, cover;
+  background-attachment: fixed, fixed;
+  background-position: top left, center center;
 }
 
 /* sobre-mi */
