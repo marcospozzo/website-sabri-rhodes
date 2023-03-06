@@ -381,6 +381,15 @@ button.anchored {
   left: 50%;
   top: 81%;
 }
+@media screen and (max-width: 736px) {
+  input[type=button].anchored,
+  input[type=submit].anchored,
+  input[type=reset].anchored,
+  .button.anchored,
+  button.anchored {
+    display: none;
+  }
+}
 input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover,
@@ -424,6 +433,15 @@ input[type=reset].style2.down,
 .button.style2.down,
 button.style2.down {
   background-image: url("images/arrow.svg");
+}
+
+.language-button {
+  background-color: rgb(201, 201, 201);
+  border-radius: 10px;
+  transition: 0.2s;
+}
+.language-button:hover {
+  opacity: 0.8;
 }
 
 /* Form */
@@ -989,14 +1007,25 @@ body.is-touch .poptrox-popup .closer {
   position: relative;
   opacity: 1;
 }
-.gallery article iframe {
+.gallery article .gallery-iframe {
   width: 100%;
   height: 100%;
 }
+@media screen and (max-width: 736px) {
+  .gallery article .gallery-iframe {
+    height: 200px;
+  }
+}
 .gallery article .image,
-.gallery article iframe {
+.gallery article .gallery-iframe {
   margin: 0;
   display: block;
+}
+@media screen and (max-width: 736px) {
+  .gallery article .image,
+  .gallery article .gallery-iframe {
+    margin-bottom: 1em;
+  }
 }
 .gallery article:nth-last-child(1n) {
   transition-delay: 0.05s;
@@ -1186,15 +1215,35 @@ body.is-touch .poptrox-popup .closer {
   width: 100%;
 }
 
-#image-news {
+@media screen and (max-width: 736px) {
+  #news-container > article.from-left > .content.box {
+    margin: 0;
+    margin-bottom: 1em;
+    width: 100%;
+    flex-direction: column-reverse;
+  }
+}
+
+.news-media {
+  display: flex;
+  justify-content: center;
+}
+.news-media > * {
   border: 7px solid #454545;
   border-radius: 5px;
   height: 16em;
+  width: 28.44em;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-
-.image-news {
-  display: flex;
-  justify-content: center;
+@media screen and (max-width: 736px) {
+  .news-media > * {
+    width: 100%;
+  }
+}
+.news-media > iframe.news-spotify-iframe {
+  border: 0;
+  align-self: center;
 }
 
 /* Header */
@@ -1243,6 +1292,11 @@ body.is-touch .poptrox-popup .closer {
   line-height: 3em;
   padding: 0 0.5em 0 0.5em;
   outline: 0;
+}
+#header nav ul li a.language-button {
+  height: 2em;
+  display: flex;
+  align-items: center;
 }
 @media screen and (max-width: 736px) {
   #header {
