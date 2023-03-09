@@ -88,28 +88,29 @@ button {
 }
 
 .language-button {
-  // position: absolute;
-  // /* Set the button's top to 0 to place it at the top of the page */
-  // top: 0;
-  // /* Set the button's left and right to 0 to center it horizontally */
-  // left: 0;
-  // right: 0;
-  // /* Set the button's margin to auto to center it horizontally */
-  // width: 8em;
-  // height: 3em;
-  // z-index: 1000000;
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
-  // color: #39454b;
-  // background-color: transparent;
-  // cursor: pointer;
-  // text-decoration: none;
+  position: absolute;
+  /* Set the button's top to 0 to place it at the top of the page */
+  top: 0;
+  /* Set the button's left and right to 0 to center it horizontally */
+  left: 0;
+  right: 0;
+  /* Set the button's margin to auto to center it horizontally */
+  width: 8em;
+  height: 3em;
+  z-index: 1000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #39454b;
+  background-color: transparent;
+  cursor: pointer;
+  text-decoration: none;
+
   background-color: rgb(201, 201, 201);
   border-radius: 10px;
   transition: 0.2s;
   
   &:hover {
-    opacity: 0.8;
+    // opacity: 0.8;
   }
 }

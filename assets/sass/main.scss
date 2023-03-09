@@ -83,7 +83,7 @@
 /* news */
 
 #news {
-  background: url("images/overlay.png"), url("../../images/two.png");
+  background: url("images/overlay.png"), url("../../images/5.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
@@ -111,6 +111,15 @@
 
 #musica {
   background: url("images/overlay.png"), url("../../images/three.png");
+  background-size: 256px 256px, cover;
+  background-attachment: fixed, fixed;
+  background-position: top left, center center;
+}
+
+/* musica */
+
+#galeria {
+  background: url("images/overlay.png"), url("../../images/9.png");
   background-size: 256px 256px, cover;
   background-attachment: fixed, fixed;
   background-position: top left, center center;
