@@ -65,7 +65,7 @@
 
   // Gallery.
   $window.on("load", function () {
-    var $gallery = $(".gallery");
+    var $gallery = $("#gallery");
 
     $gallery.poptrox({
       baseZIndex: 10001,
